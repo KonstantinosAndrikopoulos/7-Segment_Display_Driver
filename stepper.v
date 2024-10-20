@@ -30,31 +30,4 @@ begin
         end
 end
 
-
-/*an always block that acts as a counter and gets to the
-next address of the message array every time the button is
-pressed and it loops*/
-always@(posedge clock or posedge reset)
-begin
-    if(reset) begin
-        address=3'b000;
-        step_counter=2'b00;
-    end
-    else 
-        begin
-            if(button_pressed)
-                begin
-                    if(step_counter!=2) begin
-                        address=address+1;
-                        step_counter=step_counter+1;
-                    end
-                    
-                    if(step_counter==2) begin
-                        address=3'b000;
-                        step_counter=2'b00;
-                    end
-                end
-        end
-end
-
 endmodule
